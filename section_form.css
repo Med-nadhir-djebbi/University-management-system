@@ -1,0 +1,270 @@
+
+:root {
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary-color: #3f37c9;
+    --error-color: #f72585;
+    --success-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --text-color: #2b2d42;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --gradient: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  body {
+    background-color: #f8f9fa;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(63, 55, 201, 0.05) 0%, transparent 20%);
+  }
+
+  .form-container {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--gradient);
+  }
+  
+  .form-container h1 {
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .error {
+    color: var(--error-color);
+    background-color: rgba(247, 37, 133, 0.1);
+    padding: 14px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    border-left: 4px solid var(--error-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .error::before {
+    content: '⚠';
+    font-size: 18px;
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #adb5bd;
+    transition: var(--transition);
+    pointer-events: none;
+    font-size: 16px;
+  }
+  
+  .form-group.focused label,
+  .form-group input:not(:placeholder-shown) + label,
+  .form-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 12px;
+    font-size: 14px;
+    color: var(--primary-color);
+    background: white;
+    padding: 0 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+    background-color: #f8f9fa;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    gap: 15px;
+  }
+  
+  .btn {
+    padding: 14px 30px;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(135deg, #3a56d4 0%, #3a0ca3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(67, 97, 238, 0.3);
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: var(--transition);
+  }
+  
+  .btn:hover::after {
+    left: 100%;
+  }
+  
+  .cancel-link {
+    color: var(--error-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--error-color);
+  }
+  
+  .cancel-link:hover {
+    background-color: rgba(247, 37, 133, 0.1);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 30px 20px;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .btn, .cancel-link {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .floating-label {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .floating-label input,
+  .floating-label textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: var(--transition);
+  }
+  
+  .floating-label label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #adb5bd;
+    font-size: 16px;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+  
+  .floating-label input:focus + label,
+  .floating-label input:not(:placeholder-shown) + label,
+  .floating-label textarea:focus + label,
+  .floating-label textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 12px;
+    font-size: 14px;
+    background: white;
+    padding: 0 5px;
+    color: var(--primary-color);
+  }
+  
+  .floating-label input:focus,
+  .floating-label textarea:focus {
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+  }

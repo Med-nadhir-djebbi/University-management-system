@@ -1,0 +1,135 @@
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #2b2d42;
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(63, 55, 201, 0.05) 0%, transparent 20%);
+}
+
+.student-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: white;
+    font-size: 18px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.student-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+.student-name {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #4361ee;
+    background: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.student-name::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
+    border-radius: 2px;
+}
+
+.student-info {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.student-info p {
+    margin: 12px 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.student-info p:hover {
+    background-color: rgba(67, 97, 238, 0.05);
+    transform: translateX(5px);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+}
+
+.back-link:hover {
+    background: linear-gradient(135deg, #3a56d4 0%, #3a0ca3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(67, 97, 238, 0.3);
+    text-decoration: none;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(76, 201, 240, 0.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .student-card {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .student-name {
+        font-size: 28px;
+    }
+    
+    .student-info p {
+        font-size: 16px;
+    }
+}
