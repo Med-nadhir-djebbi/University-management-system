@@ -1,8 +1,8 @@
 The database model is included you only need to create a database with the same structure and you are all good to go
 
 
- ===================================================================================================================
-Here is a quick overview of the website
+ ================================================================
+Here's a brief overview of the website
 
 ![Capture d'écran 2025-04-11 214548](https://github.com/user-attachments/assets/cfb311fa-7505-4a62-a107-3868954b9d19)
 ![Capture d'écran 2025-04-11 214620](https://github.com/user-attachments/assets/f973402d-91dc-4fd6-baf9-9646e371aa74)
