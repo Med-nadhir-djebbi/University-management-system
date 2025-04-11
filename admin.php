@@ -8,6 +8,12 @@ session_start();
 $studentModel = new Student($pdo);
 $sectionModel = new Section($pdo);
 
+
+
+$currentTab = $_GET['tab'] ?? 'students';
+$students = $studentModel->getAll();
+$sections = $sectionModel->getAll();
+
 if (isset($_GET['delete_id'])) {
     $delete_id = intval($_GET['delete_id']);
     if ($currentTab === 'students' && $studentModel->delete($delete_id)) {
@@ -20,11 +26,6 @@ if (isset($_GET['delete_id'])) {
     header('Location: admin.php?tab='.$currentTab);
     exit;
 }
-
-$currentTab = $_GET['tab'] ?? 'students';
-$students = $studentModel->getAll();
-$sections = $sectionModel->getAll();
-
 require_once 'export.php'; 
 $sort_column = isset($_GET['sort_column']) ? $_GET['sort_column'] : '';
 $sort_order = isset($_GET['sort_order']) ? $_GET['sort_order'] : '';

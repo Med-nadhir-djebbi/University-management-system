@@ -44,8 +44,8 @@ class Student {
     }
     
     public function delete($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM etudiant WHERE id=?");
-        return $stmt->execute([$id]);
+        $stmt = $this->pdo->prepare("DELETE FROM etudiant WHERE id = :id");
+        return $stmt->execute(['id' => $id]); 
     }
 }
 ?>
